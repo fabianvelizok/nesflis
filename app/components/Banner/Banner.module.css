@@ -1,0 +1,49 @@
+.container {
+  width: 100vw;
+  /* Header height */
+  height: calc(100vh - 42px); 
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.information {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 100%;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  color: var(--white10);
+  -webkit-text-stroke: 2px var(--black); /* width and color */
+}
+
+.subtitle {
+  font-size: 2rem;
+  line-height: 100%;
+  margin-bottom: 1rem;
+  color: var(--white10);
+  -webkit-text-stroke: 1px gray; /* width and color */
+}
+
+.image {
+  display: block;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.playButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
