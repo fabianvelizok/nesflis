@@ -2,8 +2,16 @@
   cursor: pointer;
 }
 
-.smallSize {
+.animatedWrapper {
   position: relative;
+  display: inline-flex;
+}
+
+.animatedWrapper:hover {
+  z-index: 1;
+}
+
+.smallSize {
   width: 300px;
   min-width: 300px;
   height: 170px;
@@ -11,7 +19,6 @@
 }
 
 .mediumSize {
-  position: relative;
   width: 158px;
   min-width: 158px;
   height: 280px;
@@ -19,7 +26,6 @@
 }
 
 .largeSize {
-  position: relative;
   width: 218px;
   min-width: 218px;
   height: 434px;

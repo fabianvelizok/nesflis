@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
+
 import styles from './Card.module.css'
 
 type cardProps = {
@@ -25,15 +27,24 @@ const Card = ({
 }: cardProps) => {
   const [imagSrc, setImageSrc] = useState(imageUrl)
 
-  return <div className={`${cardStyles[size]} ${styles.container} ${className}`}>
-    {/* TODO: Add sizes prop to improve performance */}
-    <Image
-      src={imagSrc}
-      className={styles.cardImage}
-      alt="Card image" // TODO: Improve
-      fill={true}
-      onError={() => setImageSrc(fallbackImage)}
-    />
+  return <div className={styles.container}>
+    <motion.div
+      className={`${cardStyles[size]} ${styles.animatedWrapper} ${className}`}
+      whileHover={{
+        scale: 1.2,
+        transition: { duration: 0.5 },
+      }}
+    >
+
+      {/* TODO: Add sizes prop to improve performance */}
+      <Image
+        src={imagSrc}
+        className={styles.cardImage}
+        alt="Card image" // TODO: Improve
+        fill={true}
+        onError={() => setImageSrc(fallbackImage)}
+      />
+    </motion.div>
   </div>
 }
 
