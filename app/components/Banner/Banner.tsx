@@ -1,9 +1,10 @@
-"use client"
+'use client'
 
-import Image from "next/image"
-import styles from "./Banner.module.css"
-import Button from "../Button/Button"
-import Container from "../Container/Container"
+import Image from 'next/image'
+
+import Button from '../Button/Button'
+import Container from '../Container/Container'
+import styles from './Banner.module.css'
 
 type BannerProps = {
   title: string
@@ -22,8 +23,13 @@ const Banner = ({ title, subtitle, imageUrl }: BannerProps) => {
         <div className={styles.information}>
           <h2 className={styles.title}>{title}</h2>
           <h3 className={styles.subtitle}>{subtitle}</h3>
-          <Button onClick={handlePlay} className={styles.playButton}>
-            <Image src="/static/play_arrow.svg" height={20} width={20} alt="Play icon"/>
+          <Button className={styles.playButton} onClick={handlePlay}>
+            <Image
+              src="/static/play_arrow.svg"
+              height={20}
+              width={20}
+              alt="Play icon"
+            />
             <span>Play</span>
           </Button>
         </div>

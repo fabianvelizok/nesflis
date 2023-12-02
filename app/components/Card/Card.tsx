@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
+import cx from '@/utils/cx';
 import styles from './Card.module.css'
 
 type cardProps = {
@@ -29,7 +30,7 @@ const Card = ({
 
   return <div className={styles.container}>
     <motion.div
-      className={`${cardStyles[size]} ${styles.animatedWrapper} ${className}`}
+      className={cx(styles.animatedWrapper, cardStyles[size], className)}
       whileHover={{
         scale: 1.2,
         transition: { duration: 0.5 },
