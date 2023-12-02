@@ -1,9 +1,16 @@
 .container {
   width: 100vw;
   height: 100vh;
+}
+
+.innerContainer {
   position: absolute;
   display: flex;
   align-items: center;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }
 
 .information {
@@ -34,6 +41,7 @@
   display: block;
   object-fit: cover;
   position: absolute;
+  object-position: top;
   z-index: 1;
   height: 100%;
   width: 100%;

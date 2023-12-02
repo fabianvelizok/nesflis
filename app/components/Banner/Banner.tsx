@@ -17,25 +17,27 @@ const Banner = ({ title, subtitle, imageUrl }: BannerProps) => {
   }
 
   return <div className={styles.container}>
-    <Container>
-      <div className={styles.information}>
-        <h2 className={styles.title}>{title}</h2>
-        <h3 className={styles.subtitle}>{subtitle}</h3>
-        <Button onClick={handlePlay} className={styles.playButton}>
-          <Image src="/static/play_arrow.svg" height={20} width={20} alt="Play icon"/>
-          <span>Play</span>
-        </Button>
-      </div>
-    </Container>
+    <div className={styles.innerContainer}>
+      <Container>
+        <div className={styles.information}>
+          <h2 className={styles.title}>{title}</h2>
+          <h3 className={styles.subtitle}>{subtitle}</h3>
+          <Button onClick={handlePlay} className={styles.playButton}>
+            <Image src="/static/play_arrow.svg" height={20} width={20} alt="Play icon"/>
+            <span>Play</span>
+          </Button>
+        </div>
+      </Container>
 
-    <Image
-      src={imageUrl}
-      alt="Banner image"
-      // TODO: Check sizes
-      width={1000} 
-      height={1000}
-      className={styles.image}
-    />
+      <Image
+        src={imageUrl}
+        alt="Banner image"
+        // TODO: Check sizes
+        width={1000} 
+        height={1000}
+        className={styles.image}
+      />
+    </div>
   </div>
 }
 
