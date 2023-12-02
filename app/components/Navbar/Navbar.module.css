@@ -1,0 +1,28 @@
+.navbar {
+  color: var(--white10);
+  position: fixed;
+  top: 0px;
+  background-image: linear-gradient(to bottom, var(--gradient-stops));
+
+  --gradient-from: var(--black);
+  --gradient-stops: var(--gradient-from), var(--gradient-to, rgba(0, 0, 0, 0));
+  width: 100%;
+  z-index: 50;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navList,
+.userInfoList {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 1rem;
+}

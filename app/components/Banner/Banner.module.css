@@ -1,7 +1,6 @@
 .container {
   width: 100vw;
-  /* Header height */
-  height: calc(100vh - 42px); 
+  height: 100vh;
   position: absolute;
   display: flex;
   align-items: center;
