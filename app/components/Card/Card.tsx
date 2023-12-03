@@ -11,6 +11,8 @@ type cardProps = {
   className?: string
   imageUrl: string
   size: 'small' | 'medium' | 'large'
+  isFirst?: boolean
+  isLast?: boolean
 }
 
 const cardStyles = {
@@ -24,17 +26,26 @@ const fallbackImage = 'https://images.unsplash.com/photo-1485846234645-a62644f84
 const Card = ({
   className = '',
   imageUrl,
-  size
+  size,
+  isFirst = false,
+  isLast = false
 }: cardProps) => {
   const [imagSrc, setImageSrc] = useState(imageUrl)
+  const cardStyle = {
+    originX: isFirst
+    ? 0 // Scale first item to the right
+    : (isLast
+        ? 1 // Scale last item to the left
+        : 0.5) // Scale item to the center by default
+  }
 
   return <div className={styles.container}>
     <motion.div
       className={cx(styles.animatedWrapper, cardStyles[size], className)}
       whileHover={{
-        scale: 1.2,
-        transition: { duration: 0.5 },
+        scale: 1.1
       }}
+      style={cardStyle}
     >
 
       {/* TODO: Add sizes prop to improve performance */}

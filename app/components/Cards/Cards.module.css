@@ -1,0 +1,23 @@
+.container {
+  color: var(--blue20);
+  background-color: --var(--black50);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.title {
+  color: var(--white10);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.cards {
+  display: flex;
+  padding-top: 1.7rem;
+  padding-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  margin-right: 0.75rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 1rem;
+}
