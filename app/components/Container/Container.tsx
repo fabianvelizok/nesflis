@@ -6,10 +6,12 @@ import styles from './Container.module.css'
 type ContainerProps = {
   children: ReactNode
   className?: string
+  tag?: keyof JSX.IntrinsicElements
 }
 
-const Container = ({ children, className }: ContainerProps) => {
-  return <div className={cx(styles.container, className)}>{children}</div>
+const Container = ({ children, className, tag }: ContainerProps) => {
+  const ContainerTag = tag ?? 'div'
+  return <ContainerTag className={cx(styles.container, className)}>{children}</ContainerTag>
 }
 
 export default Container

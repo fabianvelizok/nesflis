@@ -1,8 +1,7 @@
 .container {
   color: var(--blue20);
   background-color: --var(--black50);
-  padding-left: 1rem;
-  padding-right: 1rem;
+  flex-direction: column;
 }
 
 .title {

@@ -9,42 +9,40 @@ type NavbarProps = {
 }
 
 const Navbar = ({ username, isLoggedIn = false }: NavbarProps) => {
-  return <div className={styles.navbar}>
-    <Container className={styles.container}>
-      <nav>
-        <ul className={styles.navList}>
-          <li>
-            <Link href={'/'}>
-              <Image
-                className={styles.logo}
-                src="/static/netflix.svg"
-                alt="Netflix logo"
-                width={128}
-                height={34}
-              />
-            </Link>
-          </li>
-          <li>
-            <Link href={'/'}>Home</Link>
-          </li>
-          <li>
-            <Link href={'/browse/my-list'}>My List</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <ul className={styles.userInfoList}>
-        {
-          isLoggedIn ? <>
-            <li>{username}</li>
-            <li><Link href="/logout">Sign out</Link></li>
-          </> : <>
-            <li><Link href="/sign-in">Sign in</Link></li>
-          </>
-        }
+  return <Container className={styles.container}>
+    <nav>
+      <ul className={styles.navList}>
+        <li>
+          <Link href={'/'}>
+            <Image
+              className={styles.logo}
+              src="/static/netflix.svg"
+              alt="Netflix logo"
+              width={128}
+              height={34}
+            />
+          </Link>
+        </li>
+        <li>
+          <Link href={'/'}>Home</Link>
+        </li>
+        <li>
+          <Link href={'/browse/my-list'}>My List</Link>
+        </li>
       </ul>
-    </Container>
-  </div>
+    </nav>
+
+    <ul className={styles.userInfoList}>
+      {
+        isLoggedIn ? <>
+          <li>{username}</li>
+          <li><Link href="/logout">Sign out</Link></li>
+        </> : <>
+          <li><Link href="/sign-in">Sign in</Link></li>
+        </>
+      }
+    </ul>
+  </Container>
 }
 
 export default Navbar

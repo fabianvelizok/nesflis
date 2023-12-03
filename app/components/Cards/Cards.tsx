@@ -1,6 +1,7 @@
 import React from 'react'
 
 import cx from '@/utils/cx';
+import Container from '../Container/Container';
 import styles from './Cards.module.css'
 
 type CardsProps = {
@@ -10,7 +11,7 @@ type CardsProps = {
 }
 
 const Cards = ({ children, className, title }: CardsProps) => {
-  return <section className={cx(styles.container, className)}>
+  return <Container className={styles.container} tag="section">
     <h2 className={styles.title}>{title}</h2>
     <div className={styles.cards}>
       {React.Children.map(children, (child, index) => {
@@ -24,7 +25,7 @@ const Cards = ({ children, className, title }: CardsProps) => {
         return null
       })}
     </div>
-  </section>
+  </Container>
 }
 
 export default Cards

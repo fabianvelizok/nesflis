@@ -1,15 +1,13 @@
 import styles from './page.module.css'
 import Banner from '@/app/components/Banner/Banner'
-import Navbar from '@/app/components/Navbar/Navbar'
 import Card from '@/app/components/Card/Card'
 import Cards from '@/app/components/Cards/Cards'
 
 export default function Home() {
   const fakeCards = new Array(6).fill('')
-  return (
-    <main className={styles.main}>
-      <Navbar username="fabianvelizok" />
 
+  return (
+    <div className={styles.home}>
       <Banner title="Banner title" subtitle="Banner subtitle" imageUrl="/static/clifford.webp" />
 
       <Cards title="Small Cards">
@@ -29,6 +27,6 @@ export default function Home() {
           <Card key={idx} imageUrl="/static/clifford.webp" size="large" />
         ))}
       </Cards>
-    </main>
+    </div>
   )
 }

@@ -17,7 +17,7 @@ const Banner = ({ title, subtitle, imageUrl }: BannerProps) => {
     console.log('Handle play')
   }
 
-  return <div className={styles.container}>
+  return <section className={styles.container}>
     <div className={styles.innerContainer}>
       <Container>
         <div className={styles.information}>
@@ -44,7 +44,7 @@ const Banner = ({ title, subtitle, imageUrl }: BannerProps) => {
         className={styles.image}
       />
     </div>
-  </div>
+  </section>
 }
 
 export default Banner
