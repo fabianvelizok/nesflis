@@ -11,6 +11,7 @@ type cardProps = {
   className?: string
   imageUrl: string
   size: 'small' | 'medium' | 'large'
+  title: string
   isFirst?: boolean
   isLast?: boolean
 }
@@ -27,6 +28,7 @@ const Card = ({
   className = '',
   imageUrl,
   size,
+  title,
   isFirst = false,
   isLast = false
 }: cardProps) => {
@@ -48,12 +50,11 @@ const Card = ({
       style={cardStyle}
     >
 
-      {/* TODO: Add sizes prop to improve performance */}
       <Image
         src={imagSrc}
         className={styles.cardImage}
-        alt="Card image" // TODO: Improve
-        fill={true}
+        alt={title}
+        fill
         onError={() => setImageSrc(fallbackImage)}
       />
     </motion.div>

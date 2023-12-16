@@ -18,25 +18,25 @@ export default async function Home() {
 
       <Cards title="Disney">
         {disneyVideos.map((video, idx) => (
-          <Card key={idx} imageUrl={video.imageUrl} size="large" />
+          <Card key={idx} imageUrl={video.imageUrl} title={video.title} size="large" />
         ))}
       </Cards>
   
       <Cards title="Travel">
         {travelVideos.map((video, idx) => (
-          <Card key={idx} imageUrl={video.imageUrl} size="small" />
+          <Card key={idx} imageUrl={video.imageUrl} title={video.title} size="small" />
         ))}
       </Cards>
 
       <Cards title="Productivity">
         {productivityVideos.map((video, idx) => (
-          <Card key={idx} imageUrl={video.imageUrl} size="medium" />
+          <Card key={idx} imageUrl={video.imageUrl} title={video.title} size="medium" />
         ))}
       </Cards>
 
       <Cards title="Popular">
         {popularVideos.map((video, idx) => (
-          <Card key={idx} imageUrl={video.imageUrl} size="small" />
+          <Card key={idx} imageUrl={video.imageUrl} title={video.title} size="small" />
         ))}
       </Cards>
     </div>

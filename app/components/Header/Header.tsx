@@ -6,11 +6,12 @@ import styles from './Header.module.css'
 
 type HeaderProps = {
   className?: string
-  username: string
+  username?: string
+  isLoggedIn: boolean
 }
 
-const Header = ({ className, username }: HeaderProps) => <header className={cx(styles.header, className)}>
-  <Navbar username={username} />
+const Header = ({ className, username, isLoggedIn }: HeaderProps) => <header className={cx(styles.header, className)}>
+  <Navbar username={username} isLoggedIn={isLoggedIn} />
 </header>
 
 export default Header

@@ -33,16 +33,7 @@
 }
 
 .cardImage {
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-
   border-radius: 0.375rem;
   object-fit: cover;
-
   object-position: center;
-  display: block;
-
-  max-width: 100%;
 }

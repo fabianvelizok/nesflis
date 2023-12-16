@@ -4,11 +4,11 @@ import Container from "../Container/Container"
 import styles from './Navbar.module.css'
 
 type NavbarProps = {
-  username: string,
-  isLoggedIn?: boolean
+  username?: string,
+  isLoggedIn: boolean
 }
 
-const Navbar = ({ username, isLoggedIn = false }: NavbarProps) => {
+const Navbar = ({ username, isLoggedIn }: NavbarProps) => {
   return <Container className={styles.container}>
     <nav>
       <ul className={styles.navList}>
@@ -23,22 +23,24 @@ const Navbar = ({ username, isLoggedIn = false }: NavbarProps) => {
             />
           </Link>
         </li>
-        <li>
-          <Link href={'/'}>Home</Link>
-        </li>
-        <li>
-          <Link href={'/browse/my-list'}>My List</Link>
-        </li>
+        {isLoggedIn && <>
+          <li>
+            <Link href={'/'}>Home</Link>
+          </li>
+          <li>
+            <Link href={'/browse/my-list'}>My List</Link>
+          </li>
+        </>}
       </ul>
     </nav>
 
     <ul className={styles.userInfoList}>
       {
         isLoggedIn ? <>
-          <li>{username}</li>
+          <li>{username ?? 'Unknown'}</li>
           <li><Link href="/logout">Sign out</Link></li>
         </> : <>
-          <li><Link href="/sign-in">Sign in</Link></li>
+          <li><Link href="/login">Sign in</Link></li>
         </>
       }
     </ul>
