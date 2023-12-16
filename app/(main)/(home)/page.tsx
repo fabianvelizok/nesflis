@@ -1,8 +1,14 @@
+import type { Metadata } from 'next'
 import styles from './page.module.css'
 import Banner from '@/app/components/Banner/Banner'
 import Card from '@/app/components/Card/Card'
 import Cards from '@/app/components/Cards/Cards'
 import { searchVideosByQuery, getMostPopularVideos } from '@/lib/videos'
+
+export const metadata: Metadata = {
+  title: 'Youflix | Home',
+  description: 'Youflix | Home',
+}
 
 export default async function Home() {
   const [disneyVideos, travelVideos, productivityVideos, popularVideos] = await Promise.all([
