@@ -30,7 +30,7 @@ async function getVideos(url: string) {
     }
     return transformVideos(response.items)
   } catch (e) {
-    console.log('Error getting videos: ', e)
+    console.error('Error getting videos: ', e)
     return []
   }
 }

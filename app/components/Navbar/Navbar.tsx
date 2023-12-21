@@ -1,14 +1,15 @@
+'use client'
+
 import Image from "next/image"
 import Link from "next/link"
 import Container from "../Container/Container"
 import styles from './Navbar.module.css'
+import { useUser } from "@/app/providers/UserProvider"
 
-type NavbarProps = {
-  username?: string,
-  isLoggedIn: boolean
-}
+const Navbar = () => {
+  const { user } = useUser()
+  const isLoggedIn = !!user
 
-const Navbar = ({ username, isLoggedIn }: NavbarProps) => {
   return <Container className={styles.container}>
     <nav>
       <ul className={styles.navList}>
@@ -37,7 +38,7 @@ const Navbar = ({ username, isLoggedIn }: NavbarProps) => {
     <ul className={styles.userInfoList}>
       {
         isLoggedIn ? <>
-          <li>{username ?? 'Unknown'}</li>
+          <li>{user}</li>
           <li><Link href="/logout">Sign out</Link></li>
         </> : <>
           <li><Link href="/login">Sign in</Link></li>

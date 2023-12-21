@@ -1,0 +1,35 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  background-color: var(--black20);
+  border-radius: 0.375rem;
+  width: 350px;
+}
+
+.title, .input, .button, .text {
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  padding: 0.5rem;
+  color: var(--black30);
+  height: 3rem /* 48px */;
+  min-width: 240px;
+  font-size: 1.2rem;
+  border-radius: 0.375rem;
+}
+
+.button {
+  background-color: var(--red10);
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: var(--white10);
+  border-radius: 0.375rem;
+  width: 100%;
+}
+
+.text {
+  font-size: 1.2rem;
+}

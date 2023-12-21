@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
+import LoginForm from '@/app/components/LoginForm/LoginForm'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function Login() {
       fill
       alt="Background"
     />
-    <div className={styles.loginWrapper}>Sign In</div>
+
+    <LoginForm className={styles.form} />
   </div>
 }

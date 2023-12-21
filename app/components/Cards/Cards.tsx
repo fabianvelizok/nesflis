@@ -1,6 +1,5 @@
 import React from 'react'
 
-import cx from '@/utils/cx';
 import Container from '../Container/Container';
 import styles from './Cards.module.css'
 

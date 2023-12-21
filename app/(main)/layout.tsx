@@ -5,8 +5,7 @@ export default function LoginLayout({ children }: {
 }) {
   return (
     <>
-      {/* FIXME: Header should not know about login stuff */}
-      <Header username="fabianvelizok" isLoggedIn />
+      <Header />
 
       <main>
         {children}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Roboto_Slab } from 'next/font/google'
 
+import Providers from './providers/Providers'
 import './globals.css'
 
 const robotoFont = Roboto_Slab({ subsets: ['latin'] })
@@ -17,7 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={robotoFont.className}>{children}</body>
+      <body className={robotoFont.className}>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   )
 }

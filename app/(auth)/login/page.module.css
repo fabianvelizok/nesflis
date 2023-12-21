@@ -9,10 +9,10 @@
 .image {
   object-fit: cover;
   object-position: center;
-  display: block;
+  filter: opacity(50%);
 }
 
-.loginWrapper {
+.form {
   position: relative;
   z-index: 1;
 }
