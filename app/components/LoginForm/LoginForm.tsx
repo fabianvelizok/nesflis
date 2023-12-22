@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 
 import cx from '@/utils/cx';
 import { useUser } from '@/app/providers/UserProvider'
+import Button from '@/app/components/Button/Button'
 import styles from './LoginForm.module.css'
 
 type LoginFormProps = {
@@ -37,7 +38,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
     {userEmail
       ? <>
           <p className={styles.text}>Already Logged In!</p>
-          <button className={styles.button} onClick={() => router.push('/')}>Home</button>
+          <Button variant="secondary" onClick={() => router.push('/')}>Home</Button>
         </>
       : <>
           <input
@@ -48,7 +49,7 @@ const LoginForm = ({ className }: LoginFormProps) => {
             className={styles.input}
           />
 
-          <button type="submit" className={styles.button}>Sign In</button>
+          <Button type="submit" variant="secondary">Sign In</Button>
         </>}
   </form>
 }

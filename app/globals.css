@@ -5,10 +5,12 @@
   --black30: rgb(17, 24, 39);
   --black40: #141414;
   --black50: rgb(20, 20, 20);
+  --black60: rgba(0, 0, 0, 0.4);
 
   --gray10: rgb(119, 119, 119);
   --gray20: rgb(156, 163, 175);
   --gray40: rgba(42, 42, 42, 0.6);
+  --gray50: rgba(255, 255, 255, 0.25);
 
   --white10: rgba(255, 255, 255, 1);
   --white20: rgba(243, 244, 246, 1);
@@ -79,18 +81,6 @@ h2 {
 
 h3 {
   font-weight: 600;
-}
-
-button {
-  background-image: none;
-  font-weight: 600;
-  cursor: pointer;
-  background-color: transparent;
-  text-transform: none;
-  margin: 0;
-  border: 0px;
-  outline: 0px;
-  color: var(--white10);
 }
 
 @media (prefers-color-scheme: dark) {
