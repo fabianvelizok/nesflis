@@ -3,6 +3,7 @@
 import { useContext, createContext, useEffect, useState, useCallback } from 'react'
 
 import { useAuth } from './AuthProvider';
+import { useLoader } from './LoaderProvider';
 
 const UserContext = createContext({
   userEmail: '',
@@ -21,37 +22,40 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     login,
     logout
   } = useAuth()
+  const { setLoading } = useLoader()
 
   const getUserEmail = useCallback(async () => {
     try {
+      setLoading(true)
       const isLogged = await getIsLoggedIn()
       if (isLogged) {
         const userInfo = await getUserInfo()
         setUserEmail(userInfo?.email || '')
       }
+      setLoading(false)
     } catch (e) {
+      setLoading(false)
       console.error('Error getting user info!', e) 
     }
   }, [isProviderReady])
 
   const loginUser = useCallback(async (email: string) => {
+    setLoading(true)
     const didToken = await login(email);
     if (!didToken) {
+      setLoading(false)
       throw new Error('Unavailable Token!')
     }
     const userInfo = await getUserInfo();
     setUserEmail(userInfo?.email || '')
+      setLoading(false)
   }, [isProviderReady])
 
   const logoutUser = useCallback(async () => {
-    const isLogged = await getIsLoggedIn()
-    if (isLogged) {
-      const logoutOk = await logout();
-      if (!logoutOk) {
-        throw new Error('Logout not okay')
-      }
-      setUserEmail('')
-    }
+    setLoading(true)
+    await logout();
+    setUserEmail('')
+    setLoading(false)
   }, [isProviderReady])
 
   useEffect(() => {
@@ -63,12 +67,10 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const providerValue = {
     userEmail,
     loginUser,
-    logoutUser,
+    logoutUser
   }
 
   return <UserContext.Provider value={providerValue}>
     {children}
   </UserContext.Provider>
 }
-
-export default UserContext.Provider

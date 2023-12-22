@@ -1,6 +1,5 @@
 .container {
   color: var(--blue20);
-  background-color: --var(--black50);
   flex-direction: column;
 }
 
