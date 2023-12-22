@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import cx from '@/utils/cx';
 import styles from './logout.module.css'
-import AuthService from '@/lib/auth-service';
 import { useUser } from '@/app/providers/UserProvider'
 
 type logoutProps = {
@@ -11,26 +10,17 @@ type logoutProps = {
 }
 
 const Logout = ({ className }: logoutProps) => {
-  const { setUser } = useUser()
+  const { logoutUser } = useUser()
 
   useEffect(() => {
-    async function logoutUser() {
+    async function logout() {
       try {
-        const isLogged = await AuthService().getIsLoggedIn()
-        if (isLogged) {
-          const logoutOk = await AuthService().logout();
-          if (logoutOk) {
-            setUser('')
-          } else {
-            throw new Error('Logout not okay')
-          }
-        }
+        await logoutUser()
       } catch (e) {
         console.error('Error logging out user!', e) 
       }
     }
-
-    logoutUser()
+    logout()
   }, [])
   
   return <div className={cx(styles.form, className)}>

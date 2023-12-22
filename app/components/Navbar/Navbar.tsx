@@ -7,8 +7,7 @@ import styles from './Navbar.module.css'
 import { useUser } from "@/app/providers/UserProvider"
 
 const Navbar = () => {
-  const { user } = useUser()
-  const isLoggedIn = !!user
+  const { userEmail } = useUser()
 
   return <Container className={styles.container}>
     <nav>
@@ -24,7 +23,7 @@ const Navbar = () => {
             />
           </Link>
         </li>
-        {isLoggedIn && <>
+        {userEmail && <>
           <li>
             <Link href={'/'}>Home</Link>
           </li>
@@ -37,8 +36,8 @@ const Navbar = () => {
 
     <ul className={styles.userInfoList}>
       {
-        isLoggedIn ? <>
-          <li>{user}</li>
+        userEmail ? <>
+          <li>{userEmail}</li>
           <li><Link href="/logout">Sign out</Link></li>
         </> : <>
           <li><Link href="/login">Sign in</Link></li>
