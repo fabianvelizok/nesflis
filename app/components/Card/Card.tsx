@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 
 import cx from '@/utils/cx';
@@ -29,6 +30,7 @@ const Card = ({
   imageUrl,
   size,
   title,
+  url,
   isFirst = false,
   isLast = false
 }: cardProps) => {
@@ -41,7 +43,7 @@ const Card = ({
         : 0.5) // Scale item to the center by default
   }
 
-  return <div className={styles.container}>
+  return <Link href={url} className={styles.card}>
     <motion.div
       className={cx(styles.animatedWrapper, cardStyles[size], className)}
       whileHover={{
@@ -58,7 +60,7 @@ const Card = ({
         onError={() => setImageSrc(fallbackImage)}
       />
     </motion.div>
-  </div>
+  </Link>
 }
 
 export default Card

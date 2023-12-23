@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Container from '../Container/Container';
+import Container from '@/app/components/Container/Container';
 import styles from './Cards.module.css'
 
 type CardsProps = {

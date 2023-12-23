@@ -16,7 +16,7 @@ type ButtonProps = {
 
 const Button = ({ onClick, children, className, variant = 'primary', type = 'button', disabled = false }: ButtonProps) => {
   return <button
-      className={cx(styles.button, className, styles[variant] )}
+      className={cx(styles[variant], className)}
       onClick={onClick}
       type={type}
       disabled={disabled}

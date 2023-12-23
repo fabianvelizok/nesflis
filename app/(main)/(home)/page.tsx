@@ -23,26 +23,26 @@ export default async function Home() {
       <Banner title="Banner title" subtitle="Banner subtitle" imageUrl="/static/clifford.webp" />
 
       <Cards title="Disney">
-        {disneyVideos.map((video, idx) => (
-          <Card key={idx} imageUrl={video.imageUrl} title={video.title} size="large" />
+        {disneyVideos.map((video) => (
+          <Card key={video.id} url={`/watch/${video.id}`} imageUrl={video.imageUrl} title={video.title} size="large" />
         ))}
       </Cards>
   
       <Cards title="Travel">
-        {travelVideos.map((video, idx) => (
-          <Card key={idx} imageUrl={video.imageUrl} title={video.title} size="small" />
+        {travelVideos.map((video) => (
+          <Card key={video.id} url={`/watch/${video.id}`} imageUrl={video.imageUrl} title={video.title} size="small" />
         ))}
       </Cards>
 
       <Cards title="Productivity">
-        {productivityVideos.map((video, idx) => (
-          <Card key={idx} imageUrl={video.imageUrl} title={video.title} size="medium" />
+        {productivityVideos.map((video) => (
+          <Card key={video.id} url={`/watch/${video.id}`} imageUrl={video.imageUrl} title={video.title} size="medium" />
         ))}
       </Cards>
 
       <Cards title="Popular">
-        {popularVideos.map((video, idx) => (
-          <Card key={idx} imageUrl={video.imageUrl} title={video.title} size="small" />
+        {popularVideos.map((video) => (
+          <Card key={video.id} url={`/watch/${video.id}`} imageUrl={video.imageUrl} title={video.title} size="small" />
         ))}
       </Cards>
     </div>

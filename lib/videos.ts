@@ -12,12 +12,17 @@ type VideoFromAPI = {
 }
 
 const transformVideos = (videos: Array<VideoFromAPI>) => {
-  return videos.map(video => ({
-    id: video.id.videoId ?? video.id,
-    title: video.snippet.title,
-    imageUrl: video.snippet.thumbnails.high.url,
-    description: video.snippet.description
-}))
+  return videos.map(video => {
+    return {
+      id: video.id.videoId ?? video.id,
+      title: video.snippet.title,
+      imageUrl: video.snippet.thumbnails.high.url,
+      description: video.snippet.description,
+      publishTime: video.snippet.publishedAt,
+      channelTitle: video.snippet.channelTitle,
+      statistics: video.statistics ? video.statistics : { viewCount: 0 },
+    }
+  })
 }
 
 async function getVideos(url: string) {
@@ -42,5 +47,10 @@ export async function searchVideosByQuery(query: string) {
 
 export async function getMostPopularVideos(regionCode = 'US') {
   const url = `${process.env.YOUTUBE_API_URL}videos?part=snippet%2CcontentDetails%2Cstatistics&maxResults=10&chart=mostPopular&regionCode=${regionCode}&key=${process.env.YOUTUBE_API_KEY}`
+  return getVideos(url)
+}
+
+export async function getVideoById(id: string) {
+  const url = `${process.env.YOUTUBE_API_URL}videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${process.env.YOUTUBE_API_KEY}`
   return getVideos(url)
 }
