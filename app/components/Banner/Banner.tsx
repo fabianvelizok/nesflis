@@ -1,50 +1,41 @@
 'use client'
 
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
-import Button from '../Button/Button'
-import Container from '../Container/Container'
+import Button from '@/app/components/Button/Button'
+import Container from '@/app/components/Container/Container'
+import cx from '@/utils/cx'
+import Player from '@/app/components/Player/Player';
 import styles from './Banner.module.css'
 
 type BannerProps = {
+  className?: string
   title: string
-  subtitle: string
-  imageUrl: string
+  videoId: string
+  videoUrl: string
 }
 
-const Banner = ({ title, subtitle, imageUrl }: BannerProps) => {
-  const handlePlay = () => {
-    console.log('Handle play')
-  }
+const Banner = ({ title, videoId, videoUrl, className }: BannerProps) => {
+  const router = useRouter()
+  const handlePlay = () => router.push(videoUrl)
 
-  return <section className={styles.container}>
-    <div className={styles.innerContainer}>
-      <Container>
-        <div className={styles.information}>
-          <h2 className={styles.title}>{title}</h2>
-          <h3 className={styles.subtitle}>{subtitle}</h3>
-          <Button className={styles.playButton} onClick={handlePlay}>
-            <Image
-              src="/static/play_arrow.svg"
-              height={20}
-              width={20}
-              alt="Play icon"
-            />
-            <span>Play</span>
-          </Button>
-        </div>
-      </Container>
-
-      <Image
-        src={imageUrl}
-        alt="Banner image"
-        // TODO: Check sizes
-        width={1000} 
-        height={1000}
-        className={styles.image}
-      />
+  return <Container className={cx(styles.container, className)} tag="section">
+    <div className={styles.information}>
+      <h2 className={styles.title}>{title}</h2>
+      <Button className={styles.playButton} onClick={handlePlay}>
+        <Image
+          src="/static/play_arrow.svg"
+          height={20}
+          width={20}
+          alt="Play icon"
+        />
+        <span>Play</span>
+      </Button>
     </div>
-  </section>
+    
+    <Player id={videoId} autoPlay={1} className={styles.player} />
+  </Container>
 }
 
 export default Banner

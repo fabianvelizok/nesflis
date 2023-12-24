@@ -23,6 +23,7 @@
 .primary {
   composes: button;
   background-color: var(--white10);
+  color: var(--black10);
 }
 
 .primary:not(:disabled):hover {

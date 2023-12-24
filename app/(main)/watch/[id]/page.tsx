@@ -1,13 +1,14 @@
-import Container from '@/app/components/Container/Container';
-
-import cx from '@/utils/cx';
 import { getVideoById } from '@/lib/videos'
+import Container from '@/app/components/Container/Container';
+import cx from '@/utils/cx';
+import Player from '@/app/components/Player/Player';
 import styles from './page.module.css'
+
+export const revalidate = 10
 
 export default async function Page({ params }: { params: { id: string }}) {
   const videos = await getVideoById(params.id)
 
-  const iframeURL = `https://www.youtube.com/embed/${params.id}?autoplay=0&origin=http://example.com&controls=0&rel=1`
   const {
     title,
     publishTime,
@@ -21,15 +22,7 @@ export default async function Page({ params }: { params: { id: string }}) {
       <div>Video not found!</div>
     ) : (
       <>
-        <div className={styles.playerWrapper}>
-          <iframe
-            className={styles.player}
-            type="text/html"
-            src={iframeURL}
-            allowFullScreen
-            frameBorder="0"
-          />
-        </div>
+        <Player id={params.id} autoPlay={1} />
 
         <div className={styles.information}>
           <div>

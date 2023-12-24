@@ -20,7 +20,12 @@ export default async function Home() {
 
   return (
     <div className={styles.home}>
-      <Banner title="Banner title" subtitle="Banner subtitle" imageUrl="/static/clifford.webp" />
+      <Banner
+        className={styles.banner}
+        title={popularVideos[0].title}
+        videoId={popularVideos[0].id}
+        videoUrl={`/watch/${popularVideos[0].id}`}
+      />
 
       <Cards title="Disney">
         {disneyVideos.map((video) => (

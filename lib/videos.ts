@@ -8,7 +8,10 @@ type VideoFromAPI = {
       high: { url: string }
     }
     description: string
+    publishedAt: string
+    channelTitle: string
   }
+  statistics?: object
 }
 
 const transformVideos = (videos: Array<VideoFromAPI>) => {

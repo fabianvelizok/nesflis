@@ -11,10 +11,11 @@ import styles from './Card.module.css'
 type cardProps = {
   className?: string
   imageUrl: string
-  size: 'small' | 'medium' | 'large'
-  title: string
   isFirst?: boolean
   isLast?: boolean
+  size: 'small' | 'medium' | 'large'
+  title: string
+  url: string
 }
 
 const cardStyles = {
